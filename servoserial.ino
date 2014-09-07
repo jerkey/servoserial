@@ -3,7 +3,7 @@ String readString;
 Servo myservo1;  // create servo object to control a servo 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(57600);
   myservo1.attach(9);  //the pin for the servo control 
   Serial.println("type a number 0-9999 to send servo on pin 9");
 }
@@ -17,7 +17,7 @@ void loop() {
       if (c == char(13) || c == char(10)) {
         int val = readString.toInt();
         Serial.println(val); //see what was received
-        myservo1.write(val); // could also use myservo1.writeMicroseconds()
+        myservo1.writeMicroseconds(val); // could also use myservo1.writeMicroseconds()
         readString = "";
       }
       else readString += c; //makes the string readString
